@@ -1,0 +1,272 @@
+@font-face {
+  font-family: "Gotham Pro Light"; 
+  src: url("//db.onlinewebfonts.com/t/323b7229abd327d428021a6d49a7413d.eot"); 
+  src: url("//db.onlinewebfonts.com/t/323b7229abd327d428021a6d49a7413d.eot?#iefix") 
+  format("embedded-opentype"), url("//db.onlinewebfonts.com/t/323b7229abd327d428021a6d49a7413d.woff2") 
+  format("woff2"), url("//db.onlinewebfonts.com/t/323b7229abd327d428021a6d49a7413d.woff") 
+  format("woff"), url("//db.onlinewebfonts.com/t/323b7229abd327d428021a6d49a7413d.ttf") 
+  format("truetype"),
+  url("//db.onlinewebfonts.com/t/323b7229abd327d428021a6d49a7413d.svg#Gotham Pro Light")
+  format("svg"); 
+}
+
+* {
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+body {
+  font-family: 'Gotham Pro Light', sans-serif;
+  font-style: normal;
+}
+
+@mixin text($size, $line, $color) {
+  font-size: $size;
+  line-height: $line;
+  color: $color;
+}
+
+
+.slider {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 25px auto;
+  .slider-name {
+    &:hover {
+      cursor: pointer;
+      .svg {
+        margin-left: 20px;
+      }
+    }
+
+    @include text(31px, 37px, #444);
+    display: inline-flex;
+    .svg {
+      margin-left: 15px;
+      line-height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .splide__arrows {
+    @media (max-width: 580px) {
+      display: none;
+    }
+
+    float: right;
+    margin-top: 5px;
+    .splide__arrow {
+      border-radius: 100%;
+      height: 24px;
+      width: 24px;
+      display: inline-flex;
+      align-items: center;
+      background-color: #F6F6F6;
+      border: 1px solid #F6F6F6;
+      &:hover {
+        border: 1px solid #bebebe;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .splide__track {
+    margin-top: 25px;
+  }
+}
+
+
+// ===== SLIDER CARD COMPONENT ======
+.slider-content-card {
+
+  &:hover {
+    border: 1px solid #bebebe;
+  }
+
+  border: 1px solid #EEEEEE;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 20px;
+  .card-image {
+    @media (max-width: 580px) {
+      height: 100px;
+    }
+
+    height: 150px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @media (max-width: 770px) {
+        object-fit: none;
+      }
+      @media (max-width: 580px) {
+        object-fit: scale-down;
+      }
+    }
+
+    .card-image-desc {
+      position: absolute;
+      width: calc(100% - 40px);
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .card-image-text {
+      @include text(13px, 15px, #444);
+      padding: 5px 10px;
+      display: inline-block;
+      border-radius: 5px;
+    }
+
+    .card-image-new {
+      color: #3DDC97;
+      background-color: #EEFCF6;
+      margin-right: 5px;
+
+      @media (max-width: 580px) {
+        margin-right: 0px;
+        margin-bottom: 5px;
+      }
+    }
+
+    .card-image-hit {
+      color: #E49F62;
+      background-color: #FCF4ED;
+      @media (max-width: 580px) {
+        display: block;
+      }
+    }
+
+    .card-image-desc-additional {
+      @media (max-width: 580px) {
+        display: flex;
+      }
+
+      width: 60px;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      .card-price-additional-favorites {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .card-price-additional-comparasing {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+  .card-description {
+    margin-bottom: 33px;
+    
+    .card-description-desc {
+      @include text(13px, 19px, #888);
+    }
+    .card-description-title {
+      margin: 5px 0px;
+      a {
+        text-decoration: none;
+        @include text(15px, 18px, #444);
+
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+    .card-description-rating {
+      height: 15px;
+      display: flex;
+      align-items: center;
+      .card-description-rating-star {
+        display: inline-block;
+        margin-right: 5px;
+        height: 15px;
+        width: 16px;
+      }
+      .card-description-rating-value {
+        display: inline;
+        @include text(13px, 13px, #00ADEF);
+      }
+    }
+
+  }
+  .card-price {
+    margin-bottom: 15px;
+    .card-price-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 0 ;
+      .card-price-content-main {
+        display: inline-block;
+        @include text(19px, 23px, #444);
+      }
+      .card-price-content-discount {
+        display: inline-block;
+        @include text(13px, 15px, #888);
+
+        text-decoration-line: line-through;
+
+        margin-right: 15px;
+
+        @media (max-width: 1150px) {
+          display: none;
+        }
+      }
+    }
+  }
+  .card-buttons {
+    @media (max-width: 580px) {
+      grid-template-columns: 1fr;
+    }
+
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    grid-column-gap: 16px;
+    .card-price-buy {
+      .card-price-buy-button {
+        &:hover {
+          cursor: pointer;
+          background-color: #009bd7;
+        }
+
+        background-color: #00ADEF;
+        width: 100%;
+        padding: 16px 16px;
+        border: none;
+        border-radius: 5px;
+        span {
+          @include text(15px, 18px, #fff);
+        }
+      }
+
+    }
+    .card-price-additional {
+      @media (max-width: 580px) {
+        display: none;
+      }
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .card-price-additional-favorites {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .card-price-additional-comparasing {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
